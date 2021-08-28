@@ -110,6 +110,8 @@ ENV/
 env.bak/
 venv.bak/
 
+.idea/
+
 article_sent.json
 article_sent.jsonsave
 
