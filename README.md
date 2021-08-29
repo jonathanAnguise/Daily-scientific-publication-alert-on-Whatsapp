@@ -4,7 +4,7 @@ Check publication on **Google Scholar**, select two articles and send the title,
 ***
 ## How to install:
 1. Clone the repo: 
-   * `git clone https://github.com/jonathanAnguise/Daily_scientific_publication_alert_on_Whatsapp.git`
+   * `git clone https://github.com/jonathanAnguise/Daily-scientific-publication-alert-on-Whatsapp.git`
 2. Create an account in the api https://serpapi.com/ in order to do GoogleScholar request
    * Once you have an api token create a __.env__ file in the root of the folder and add the token in the file using that command:
      * `echo 'TOKEN_GOOGLE_SCHOLAR="SET_YOUR_TOKEN_HERE"' >> .env`
