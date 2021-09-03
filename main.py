@@ -16,10 +16,10 @@ def article_sender(theme):
     my_data.find_article_never_sent(my_data.article_list)
 
     # Sending part
-    # request_send_message.send_whatsapp_message("Les articles d'aujourd'hui 🤓")
-    # for article_item in range(NUMBER_OF_ARTICLE):
-    #     request_send_message.send_whatsapp_message(my_data_learning_agility.format_message(article_item))
-    # request_send_message.send_whatsapp_message("Have a nice day!!! 😁😁😁")
+    request_send_message.send_whatsapp_message("Les articles d'aujourd'hui 🤓")
+    for article_item in range(NUMBER_OF_ARTICLE):
+        request_send_message.send_whatsapp_message(my_data_learning_agility.format_message(article_item))
+    request_send_message.send_whatsapp_message("Have a nice day!!! 😁😁😁")
 
     # Save articles in a json file to never send it again
     my_data.save_article_to_file()
