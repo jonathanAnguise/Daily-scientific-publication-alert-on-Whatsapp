@@ -112,8 +112,7 @@ venv.bak/
 
 .idea/
 
-article_sent.json
-article_sent.jsonsave
+
 
 # Spyder project settings
 .spyderproject
@@ -132,3 +131,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# json local article sent files
+article*.json
