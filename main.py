@@ -3,6 +3,9 @@ from data_manager import *
 from api_whatsapp import *
 from datetime import datetime as dt
 
+THEMES_TO_SURVEY_LIST = ["learning agility", "Performance and talent management in organisations"]
+
+
 def article_sender(theme):
     request_articles = GoogleScholarApi(theme)
 
@@ -39,6 +42,5 @@ if day_of_the_week_number % 2 != 0:
     is_day_to_send_article = True
 
 if is_day_to_send_article:
-    themes_to_survey_list = ["learning agility", "Performance and talent management in organisations"]
-    for theme in themes_to_survey_list:
+    for theme in THEMES_TO_SURVEY_LIST:
         article_sender(theme)
