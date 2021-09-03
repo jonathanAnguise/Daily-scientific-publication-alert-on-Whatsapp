@@ -21,7 +21,7 @@ def article_sender(theme):
     # Sending part
     request_send_message.send_whatsapp_message("Les articles d'aujourd'hui 🤓")
     for article_item in range(NUMBER_OF_ARTICLE):
-        request_send_message.send_whatsapp_message(my_data_learning_agility.format_message(article_item))
+        request_send_message.send_whatsapp_message(my_data.format_message(article_item))
     request_send_message.send_whatsapp_message("Have a nice day!!! 😁😁😁")
 
     # Save articles in a json file to never send it again
