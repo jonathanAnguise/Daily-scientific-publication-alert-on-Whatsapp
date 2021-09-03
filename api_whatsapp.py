@@ -22,6 +22,3 @@ class WhatsAppManager:
         message = requests.post(url=ENDPOINT_CALLMEBOT, params=parameters)
         message.raise_for_status()
         print(message.text)
-
-
-

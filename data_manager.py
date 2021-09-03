@@ -5,12 +5,13 @@ NUMBER_OF_ARTICLE = 2
 
 class DataManager:
 
-    def __init__(self):
+    def __init__(self, path_file_history):
         self.article_list = []
         self.new_data = []
         self.previous_data = []
         self.article_selected_to_be_send = []
         self.formated_message = ""
+        self.file_history = path_file_history
 
     # Get the information and store it into an array
     def parse_message_to_table(self, json_file_from_google_scholar):
@@ -20,14 +21,15 @@ class DataManager:
         :return: return a table with the all element where only 2 will be selected
         """
 
-        # number_of_element = len(json_file_from_google_scholar["organic_results"])
+        # Create a dictionary with the article to check. If there is no summary (snippet), skip the article.
         self.article_list = [
             {
                 "title": self.article_dictionary["title"],
                 "link": self.article_dictionary["link"],
                 "summary": self.article_dictionary["snippet"]
             }
-            for self.article_dictionary in json_file_from_google_scholar["organic_results"]]
+            for self.article_dictionary
+            in json_file_from_google_scholar["organic_results"] if self.article_dictionary.get("snippet") is not None]
 
 
     def find_article_never_sent(self, articles_list):
@@ -63,15 +65,16 @@ class DataManager:
 
         # Join previous article sent with article freshly sent in a list before writing it as a fresh json
         self.new_data = self.previous_data + self.article_selected_to_be_send
-        with open("article_sent.json", mode="w") as file:
+        with open(self.file_history, mode="w") as file:
             file.write(json.dumps(self.new_data, indent=3))
 
     def get_previous_data(self):
+        # self.file_history = "article_sent.json"
         try:
-            with open("article_sent.json", mode="r") as file:
+            with open(self.file_history, mode="r") as file:
                 self.previous_data = json.load(file)
         except:
-            with open("article_sent.json", mode="w") as file:
+            with open(self.file_history, mode="w") as file:
                 self.previous_data = []
 
     def format_message(self, article_number):

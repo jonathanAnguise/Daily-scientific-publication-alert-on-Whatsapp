@@ -9,16 +9,16 @@ import requests
 # API in order to get information on google Scholar
 TOKEN_GOOGLE_SCHOLAR = os.getenv("TOKEN_GOOGLE_SCHOLAR")
 ENDPOINT_GOOGLE_SCHOLAR = os.getenv("ENDPOINT_GOOGLE_SCHOLAR")
-KEYWORD = "learning agility"
+# KEYWORD = "learning agility"
 SEARCH_LANGUAGE = "en"
 NUMBER_OF_RESULTS = str(50)
 testing_mode = False
 
 class GoogleScholarApi:
-    def __init__(self):
+    def __init__(self, theme_to_research):
         self.parameters = {
                               "engine": "google_scholar",
-                              "q": KEYWORD,
+                              "q": theme_to_research,
                               "hl": SEARCH_LANGUAGE,
                               "num": NUMBER_OF_RESULTS,
                               "api_key": TOKEN_GOOGLE_SCHOLAR
@@ -308,7 +308,7 @@ class GoogleScholarApi:
                                                                 'title': 'Assessing the construct validity of a measure of learning agility',
                                                                 'result_id': 'lC1vDKf2qwYJ',
                                                                 'link': 'https://search.proquest.com/openview/f03a08a37640e5dd892680c15924cdeb/1?pq-origsite=gscholar&cbl=18750&diss=y',
-                                                                'snippet': "This study examined the construct validity of the Choices questionnaire that purported to support the theory of Learning Agility. Specifically, Learning Agility attempts to predict an individual's potential performance in new tasks. The construct validity will be measured by …",
+                                                                # 'snippet': "This study examined the construct validity of the Choices questionnaire that purported to support the theory of Learning Agility. Specifically, Learning Agility attempts to predict an individual's potential performance in new tasks. The construct validity will be measured by …",
                                                                 'publication_info': {
                                                                     'summary': 'JJ Connolly - 2001 - search.proquest.com'},
                                                                 'resources': [{'title': 'fiu.edu', 'file_format': 'PDF',
