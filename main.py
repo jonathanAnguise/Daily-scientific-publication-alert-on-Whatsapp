@@ -6,11 +6,11 @@ from datetime import datetime as dt
 THEMES_TO_SURVEY_LIST = ["learning agility", "Performance and talent management in organisations"]
 
 
-def article_sender(theme):
-    request_articles = GoogleScholarApi(theme)
+def article_sender(theme_article):
+    request_articles = GoogleScholarApi(theme_article)
 
     request_send_message = WhatsAppManager()
-    path_to_save = "article_sent " + str(theme) + ".json"
+    path_to_save = "article_sent " + str(theme_article) + ".json"
     my_data = DataManager(path_to_save)
     my_data.parse_message_to_table(request_articles.get_google_scholar_results())
     print(request_articles.google_scholar_results)
