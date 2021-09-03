@@ -3,6 +3,7 @@ import json
 
 NUMBER_OF_ARTICLE = 2
 
+
 class DataManager:
 
     def __init__(self, path_file_history):
@@ -31,7 +32,6 @@ class DataManager:
             for self.article_dictionary
             in json_file_from_google_scholar["organic_results"] if self.article_dictionary.get("snippet") is not None]
 
-
     def find_article_never_sent(self, articles_list):
         """
         Read a file sent and select the two first non sent article update it in self.article_selected_to_be_send
@@ -49,7 +49,7 @@ class DataManager:
                     article_already_sent = True
                     break
             if not article_already_sent:
-                print("artice can be sent")
+                print("article can be sent")
                 self.article_selected_to_be_send.append(potential_article)
             if len(self.article_selected_to_be_send) >= 2:
                 break
@@ -69,7 +69,6 @@ class DataManager:
             file.write(json.dumps(self.new_data, indent=3))
 
     def get_previous_data(self):
-        # self.file_history = "article_sent.json"
         try:
             with open(self.file_history, mode="r") as file:
                 self.previous_data = json.load(file)
@@ -84,4 +83,3 @@ class DataManager:
         *summary*: {self.article_selected_to_be_send[article_number]["summary"]}
         *Link to know more*: {self.article_selected_to_be_send[article_number]["link"]}
         """
-
